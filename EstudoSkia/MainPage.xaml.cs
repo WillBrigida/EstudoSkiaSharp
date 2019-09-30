@@ -56,24 +56,23 @@ namespace EstudoSkia
             SKImageInfo info = e.Info;
             SKSurface surface = e.Surface;
             SKCanvas canvas = surface.Canvas;
-            var size = info.Size;
 
             canvas.Clear();
 
             #region PONTOS CARDEAIS
 
             var se = new SKPoint(0, 0); // superior esquerdo
-            var sd = new SKPoint(size.Width, 0); // superior direito
-            var ie = new SKPoint(0, size.Height); // inferior esquerdo
-            var id = new SKPoint(size.Width, size.Height); // inferior direito
+            var sd = new SKPoint(info.Width, 0); // superior direito
+            var ie = new SKPoint(0, info.Height); // inferior esquerdo
+            var id = new SKPoint(info.Width, info.Height); // inferior direito
 
-            var ce = new SKPoint(0, size.Height / 2); // centro esquerdo
-            var cd = new SKPoint(size.Width, size.Height / 2); // centro direito
-            var cs = new SKPoint(size.Width / 2, 0); // centro superior
-            var ci = new SKPoint(size.Width / 2, size.Height); // centro inferior
+            var ce = new SKPoint(0, info.Height / 2); // centro esquerdo
+            var cd = new SKPoint(info.Width, info.Height / 2); // centro direito
+            var cs = new SKPoint(info.Width / 2, 0); // centro superior
+            var ci = new SKPoint(info.Width / 2, info.Height); // centro inferior
 
 
-            var centro = new SKPoint(size.Width / 2, size.Height / 2); // centro
+            var centro = new SKPoint(info.Width / 2, info.Height / 2); // centro
             #endregion
 
             #region DESENHANDO OS PONTOS NA TELA
@@ -108,32 +107,17 @@ namespace EstudoSkia
             #region PATH
             SKPath path = new SKPath();
 
-            //DEFININDO O PRIMEIRO CONTORNO
-            //path.MoveTo(0.5f * info.Width, 0.1f * info.Height);
-            //path.LineTo(0.2f * info.Width, 0.4f * info.Height);
-            //canvas.DrawCircle(0.2f * size.Width, 0.4f * size.Height, 10, paintFillOrange);
-            //path.LineTo(0.8f * info.Width, 0.4f * info.Height);
-            //canvas.DrawCircle(0.8f * size.Width, 0.4f * size.Height, 10, paintFillOrange);
+            #region ESTRELA
+            //path.MoveTo(0.5f * info.Width, 0 * info.Height);
+            //path.LineTo(0 * info.Width, 1 * info.Height);
+            //path.LineTo(1 * info.Width, 0.33f * info.Height);
+            //path.LineTo(0 * info.Width, 0.33f * info.Height);
+            //path.LineTo(1 * info.Width, 1 * info.Height);
             //path.Close();
-            //canvas.DrawCircle(0.5f * size.Width, 0.1f * size.Height, 10, paintFillOrange);
-
             //canvas.DrawPath(path, paintStrokeBlue);
+            //canvas.DrawPath(path, paintFillOrange);
 
-            //path.MoveTo(0.5f * size.Width, 0 * size.Height);
-            //path.LineTo(0 * size.Width, 1 * size.Height );
-            //path.LineTo(1 * size.Width, 0.2f * size.Height );
-            //path.LineTo(0 * size.Width, 0.2f * size.Height );
-            //canvas.DrawPath(path, paintStrokeBlue);
-
-            path.MoveTo(0.5f * size.Width, 0 * size.Height);
-            path.LineTo(0 * size.Width, 1 * size.Height);
-            path.LineTo(1 * size.Width, 0.33f * size.Height);
-            path.LineTo(0 * size.Width, 0.33f * size.Height);
-            path.LineTo(1 * size.Width, 1 * size.Height);
-            path.Close();
-            canvas.DrawPath(path, paintStrokeBlue);
-            canvas.DrawPath(path, paintFillOrange);
-
+            #endregion
             #endregion
         }
 
